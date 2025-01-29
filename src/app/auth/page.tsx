@@ -8,16 +8,22 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
+import { useRouter } from "next/navigation";
+
 function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     // Here you would typically handle the login logic, such as sending a request to your backend API
     console.log("Email:", email);
     console.log("Password:", password);
-  };
+
+    router.push("/");
+  }
 
   return (
     <Container>
@@ -25,23 +31,23 @@ function LoginPage() {
         <Col xs={12} md={6} lg={4}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Login</h2>
+              <h2 className="text-center mb-4">Latsys</h2>
+
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Usuário</Form.Label>
                   <Form.Control
                     type="email"
-                    placeholder="Enter email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    autoFocus
                   />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
+                <Form.Group controlId="formBasicPassword" className="mt-2">
+                  <Form.Label>Senha</Form.Label>
                   <Form.Control
                     type="password"
-                    placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
