@@ -9,9 +9,12 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
 import { useRouter } from "next/navigation";
+import { ArrowRight } from "./styles";
+import { Fade, Spinner } from "react-bootstrap";
 
 function LoginPage() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,22 +25,30 @@ function LoginPage() {
     console.log("Email:", email);
     console.log("Password:", password);
 
-    router.push("/");
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      router.push("/");
+    }, 3000);
   }
 
   return (
     <Container>
       <Row className="justify-content-md-center mt-5">
         <Col xs={12} md={6} lg={4}>
+          <h2 className="text-secondary text-center fs-4 mb-2">
+            Bem-vindo(a)!
+          </h2>
+          <h3 className="text-secondary text-center fs-6 mb-4">
+            Faça login para continuar.
+          </h3>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Latsys</h2>
-
               <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Usuário</Form.Label>
                   <Form.Control
-                    type="email"
+                    type="text"
+                    placeholder="Usuário"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     autoFocus
@@ -45,8 +56,8 @@ function LoginPage() {
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword" className="mt-2">
-                  <Form.Label>Senha</Form.Label>
                   <Form.Control
+                    placeholder="Senha"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -54,7 +65,11 @@ function LoginPage() {
                 </Form.Group>
 
                 <Button variant="primary" type="submit" className="w-100 mt-4">
-                  Login
+                  {isLoading ? (
+                    <Spinner size="sm" />
+                  ) : (
+                    <ArrowRight className="bi-arrow-right-circle" />
+                  )}
                 </Button>
               </Form>
             </Card.Body>
