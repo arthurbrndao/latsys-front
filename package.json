@@ -11,12 +11,14 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "formik": "^2.4.6",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.8",
     "react-dom": "^19.0.0",
     "sass": "^1.83.4",
-    "styled-components": "^6.1.14"
+    "styled-components": "^6.1.14",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

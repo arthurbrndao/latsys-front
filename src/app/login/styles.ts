@@ -1,5 +1,6 @@
+import { theme } from "@/theme";
 import styled from "styled-components";
 
-export const ArrowRight = styled.i`
-  margin-left: 8px;
+export const ArrowRightCircleIcon = styled.i`
+  margin-left: ${theme.spacing.inlineIconMargin};
 `;

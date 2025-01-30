@@ -9,8 +9,8 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
 import { useRouter } from "next/navigation";
-import { ArrowRight } from "./styles";
-import { Fade, Spinner } from "react-bootstrap";
+import { ArrowRightCircleIcon } from "./styles";
+import { Spinner } from "react-bootstrap";
 
 function LoginPage() {
   const router = useRouter();
@@ -66,9 +66,9 @@ function LoginPage() {
 
                 <Button variant="primary" type="submit" className="w-100 mt-4">
                   {isLoading ? (
-                    <Spinner size="sm" />
+                    <Spinner animation="grow" size="sm" />
                   ) : (
-                    <ArrowRight className="bi-arrow-right-circle" />
+                    <ArrowRightCircleIcon className="bi-arrow-right-circle" />
                   )}
                 </Button>
               </Form>
