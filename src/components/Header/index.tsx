@@ -16,7 +16,7 @@ export default function Header() {
           </Col>
           {pathname !== "/login" && (
             <Col xs={2} className="text-end">
-              <LogoutText href="/login" className="text-white">
+              <LogoutText href="/login" className="text-light">
                 sair
               </LogoutText>
             </Col>
